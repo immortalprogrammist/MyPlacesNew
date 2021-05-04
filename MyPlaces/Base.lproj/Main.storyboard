@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,7 +39,7 @@
                                                     </constraints>
                                                     <state key="normal" image="map"/>
                                                     <connections>
-                                                        <segue destination="pTq-YH-e0L" kind="presentation" identifier="showMap" modalPresentationStyle="fullScreen" id="xkB-f6-JEb"/>
+                                                        <segue destination="pTq-YH-e0L" kind="presentation" identifier="showPlace" modalPresentationStyle="fullScreen" id="xkB-f6-JEb"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -96,16 +97,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r7t-Ch-6XS">
-                                                    <rect key="frame" x="16" y="8" width="382" height="63"/>
+                                                    <rect key="frame" x="16" y="8" width="355" height="63"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Let-UW-9e4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="28.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="28.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="20"/>
                                                             <color key="textColor" systemColor="systemBlueColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Place location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HWT-V4-szW">
-                                                            <rect key="frame" x="0.0" y="36.5" width="382" height="26.5"/>
+                                                            <rect key="frame" x="0.0" y="36.5" width="355" height="26.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                             <connections>
@@ -114,11 +115,26 @@
                                                         </textField>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTP-ba-9si">
+                                                    <rect key="frame" x="379" y="30" width="25" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="80c-Fa-KLx"/>
+                                                        <constraint firstAttribute="width" constant="25" id="mr8-8u-HRc"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="mappin.circle.fill" catalog="system" symbolScale="large"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="pTq-YH-e0L" kind="presentation" identifier="getAdress" modalPresentationStyle="fullScreen" id="QHx-9I-2gn"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="vTP-ba-9si" secondAttribute="bottom" constant="10" id="H1B-GG-rd6"/>
                                                 <constraint firstItem="r7t-Ch-6XS" firstAttribute="top" secondItem="97f-Kz-M4M" secondAttribute="top" constant="8" id="K5C-ec-Xa6"/>
+                                                <constraint firstItem="vTP-ba-9si" firstAttribute="leading" secondItem="r7t-Ch-6XS" secondAttribute="trailing" constant="8" id="OkS-Ke-QGE"/>
                                                 <constraint firstItem="r7t-Ch-6XS" firstAttribute="leading" secondItem="97f-Kz-M4M" secondAttribute="leading" constant="16" id="UZ2-5H-q39"/>
-                                                <constraint firstAttribute="trailing" secondItem="r7t-Ch-6XS" secondAttribute="trailing" constant="16" id="sjw-iZ-7Ne"/>
+                                                <constraint firstItem="vTP-ba-9si" firstAttribute="trailing" secondItem="97f-Kz-M4M" secondAttribute="trailingMargin" constant="10" id="hDw-Oq-kmh"/>
                                                 <constraint firstAttribute="bottom" secondItem="r7t-Ch-6XS" secondAttribute="bottom" constant="4" id="vTW-33-Aag"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -236,20 +252,71 @@
                                     <action selector="closeVC" destination="pTq-YH-e0L" eventType="touchUpInside" id="OyI-on-w9Q"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hw9-xn-OpQ">
+                                <rect key="frame" x="344" y="772" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="14V-rI-5IP"/>
+                                    <constraint firstAttribute="height" constant="50" id="hsH-1w-HsH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="location.circle.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                </state>
+                                <connections>
+                                    <action selector="centerViewInUserLocation" destination="pTq-YH-e0L" eventType="touchUpInside" id="ho3-xd-bgR"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YEQ-uK-kyi">
+                                <rect key="frame" x="187" y="407.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IDz-bg-L3t"/>
+                                    <constraint firstAttribute="width" constant="40" id="OVT-ye-ze4"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Adress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Bsl-5l-wQv">
+                                <rect key="frame" x="20" y="176" width="374" height="36"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cY-FT-omA">
+                                <rect key="frame" x="173.5" y="774" width="67" height="48"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed" destination="pTq-YH-e0L" eventType="touchUpInside" id="r6e-Gd-rAh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D1r-Pz-8BW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ExE-h9-1QD" firstAttribute="leading" secondItem="D1r-Pz-8BW" secondAttribute="leading" id="37U-I7-FbZ"/>
+                            <constraint firstItem="D1r-Pz-8BW" firstAttribute="trailing" secondItem="Bsl-5l-wQv" secondAttribute="trailing" constant="20" id="5lo-P8-h3l"/>
+                            <constraint firstItem="Bsl-5l-wQv" firstAttribute="leading" secondItem="D1r-Pz-8BW" secondAttribute="leading" constant="20" id="8Ub-yN-Zce"/>
                             <constraint firstItem="D1r-Pz-8BW" firstAttribute="trailing" secondItem="PEl-Cm-CJc" secondAttribute="trailing" constant="40" id="8vG-du-bj5"/>
+                            <constraint firstItem="D1r-Pz-8BW" firstAttribute="trailing" secondItem="Hw9-xn-OpQ" secondAttribute="trailing" constant="20" id="AlX-Vo-2Rg"/>
+                            <constraint firstItem="YEQ-uK-kyi" firstAttribute="centerX" secondItem="RRi-6E-2kh" secondAttribute="centerX" id="GTH-Yv-tgG"/>
+                            <constraint firstItem="D1r-Pz-8BW" firstAttribute="bottom" secondItem="2cY-FT-omA" secondAttribute="bottom" constant="40" id="IaH-Vv-dpz"/>
+                            <constraint firstItem="YEQ-uK-kyi" firstAttribute="centerY" secondItem="RRi-6E-2kh" secondAttribute="centerY" constant="-20" id="Pn9-uH-zEY"/>
+                            <constraint firstItem="D1r-Pz-8BW" firstAttribute="bottom" secondItem="Hw9-xn-OpQ" secondAttribute="bottom" constant="40" id="QJH-Ho-z0w"/>
                             <constraint firstAttribute="bottom" secondItem="ExE-h9-1QD" secondAttribute="bottom" id="SzU-Up-Quk"/>
+                            <constraint firstItem="ExE-h9-1QD" firstAttribute="top" secondItem="Bsl-5l-wQv" secondAttribute="bottom" constant="-212" id="WjD-JI-qhh"/>
                             <constraint firstItem="ExE-h9-1QD" firstAttribute="trailing" secondItem="D1r-Pz-8BW" secondAttribute="trailing" id="eub-yD-twv"/>
+                            <constraint firstItem="2cY-FT-omA" firstAttribute="centerX" secondItem="RRi-6E-2kh" secondAttribute="centerX" id="gGI-92-bZc"/>
                             <constraint firstItem="PEl-Cm-CJc" firstAttribute="top" secondItem="D1r-Pz-8BW" secondAttribute="top" constant="40" id="quD-4m-zJe"/>
                             <constraint firstItem="ExE-h9-1QD" firstAttribute="top" secondItem="RRi-6E-2kh" secondAttribute="top" id="xX8-y4-3HY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZKb-S3-KDW"/>
                     <connections>
+                        <outlet property="adressLabel" destination="Bsl-5l-wQv" id="OUQ-rd-7Va"/>
+                        <outlet property="doneButton" destination="2cY-FT-omA" id="S62-Ac-XX4"/>
+                        <outlet property="mapPinImage" destination="YEQ-uK-kyi" id="jFK-TX-CG7"/>
                         <outlet property="mapView" destination="ExE-h9-1QD" id="bFS-FH-fqE"/>
                     </connections>
                 </viewController>
@@ -457,6 +524,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
+        <segue reference="xkB-f6-JEb"/>
         <segue reference="abr-JY-TLw"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -465,7 +533,13 @@
         <image name="camcel" width="128" height="128"/>
         <image name="emptyStar" width="255" height="256"/>
         <image name="filledStar" width="237.5" height="238"/>
+        <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <image name="map" width="50" height="50"/>
+        <image name="mappin" catalog="system" width="105" height="128"/>
+        <image name="mappin.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
