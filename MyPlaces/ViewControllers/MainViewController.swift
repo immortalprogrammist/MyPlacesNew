@@ -35,7 +35,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // настройка Search Controller
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false // позволяем действовать с отображаемым контентом
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = "Search yours Places"
         navigationItem.searchController = searchController // строка поиска интегрирована в Бар
         definesPresentationContext = true // отпускам строке поиска при переходе на другой экран.
     }

@@ -4,6 +4,15 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>For directions to your favourite place, also get place address</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>your reason to access location.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>your reason to access location
+your reason to access location
+your reason to access location
+your reason to access location
+your reason to access location
+</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

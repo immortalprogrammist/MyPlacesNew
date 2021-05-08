@@ -125,7 +125,7 @@
                                                         <imageReference key="image" image="mappin.circle.fill" catalog="system" symbolScale="large"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="pTq-YH-e0L" kind="presentation" identifier="getAdress" modalPresentationStyle="fullScreen" id="QHx-9I-2gn"/>
+                                                        <segue destination="pTq-YH-e0L" kind="presentation" identifier="getAddress" modalPresentationStyle="fullScreen" id="QHx-9I-2gn"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -291,6 +291,17 @@
                                     <action selector="doneButtonPressed" destination="pTq-YH-e0L" eventType="touchUpInside" id="r6e-Gd-rAh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzF-H2-gbG">
+                                <rect key="frame" x="190" y="780" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="7oS-RS-AHu"/>
+                                    <constraint firstAttribute="width" constant="35" id="Pv9-SA-46l"/>
+                                </constraints>
+                                <state key="normal" image="GetDirection"/>
+                                <connections>
+                                    <action selector="goButtonPressed" destination="pTq-YH-e0L" eventType="touchUpInside" id="MXd-94-bsN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D1r-Pz-8BW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -302,20 +313,23 @@
                             <constraint firstItem="D1r-Pz-8BW" firstAttribute="trailing" secondItem="Hw9-xn-OpQ" secondAttribute="trailing" constant="20" id="AlX-Vo-2Rg"/>
                             <constraint firstItem="YEQ-uK-kyi" firstAttribute="centerX" secondItem="RRi-6E-2kh" secondAttribute="centerX" id="GTH-Yv-tgG"/>
                             <constraint firstItem="D1r-Pz-8BW" firstAttribute="bottom" secondItem="2cY-FT-omA" secondAttribute="bottom" constant="40" id="IaH-Vv-dpz"/>
+                            <constraint firstItem="D1r-Pz-8BW" firstAttribute="bottom" secondItem="XzF-H2-gbG" secondAttribute="bottom" constant="47" id="KLR-hc-eLG"/>
                             <constraint firstItem="YEQ-uK-kyi" firstAttribute="centerY" secondItem="RRi-6E-2kh" secondAttribute="centerY" constant="-20" id="Pn9-uH-zEY"/>
                             <constraint firstItem="D1r-Pz-8BW" firstAttribute="bottom" secondItem="Hw9-xn-OpQ" secondAttribute="bottom" constant="40" id="QJH-Ho-z0w"/>
                             <constraint firstAttribute="bottom" secondItem="ExE-h9-1QD" secondAttribute="bottom" id="SzU-Up-Quk"/>
                             <constraint firstItem="ExE-h9-1QD" firstAttribute="top" secondItem="Bsl-5l-wQv" secondAttribute="bottom" constant="-212" id="WjD-JI-qhh"/>
                             <constraint firstItem="ExE-h9-1QD" firstAttribute="trailing" secondItem="D1r-Pz-8BW" secondAttribute="trailing" id="eub-yD-twv"/>
                             <constraint firstItem="2cY-FT-omA" firstAttribute="centerX" secondItem="RRi-6E-2kh" secondAttribute="centerX" id="gGI-92-bZc"/>
+                            <constraint firstItem="Hw9-xn-OpQ" firstAttribute="leading" secondItem="XzF-H2-gbG" secondAttribute="trailing" constant="119" id="hlC-HR-eUw"/>
                             <constraint firstItem="PEl-Cm-CJc" firstAttribute="top" secondItem="D1r-Pz-8BW" secondAttribute="top" constant="40" id="quD-4m-zJe"/>
                             <constraint firstItem="ExE-h9-1QD" firstAttribute="top" secondItem="RRi-6E-2kh" secondAttribute="top" id="xX8-y4-3HY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZKb-S3-KDW"/>
                     <connections>
-                        <outlet property="adressLabel" destination="Bsl-5l-wQv" id="OUQ-rd-7Va"/>
+                        <outlet property="addressLabel" destination="Bsl-5l-wQv" id="OUQ-rd-7Va"/>
                         <outlet property="doneButton" destination="2cY-FT-omA" id="S62-Ac-XX4"/>
+                        <outlet property="goButton" destination="XzF-H2-gbG" id="BVV-Dg-zPj"/>
                         <outlet property="mapPinImage" destination="YEQ-uK-kyi" id="jFK-TX-CG7"/>
                         <outlet property="mapView" destination="ExE-h9-1QD" id="bFS-FH-fqE"/>
                     </connections>
@@ -524,10 +538,11 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="xkB-f6-JEb"/>
+        <segue reference="QHx-9I-2gn"/>
         <segue reference="abr-JY-TLw"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="GetDirection" width="50" height="50"/>
         <image name="Photo" width="195" height="196"/>
         <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
         <image name="camcel" width="128" height="128"/>
